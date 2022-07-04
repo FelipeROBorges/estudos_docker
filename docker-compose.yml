@@ -6,9 +6,9 @@ networks:
 services:
   nginx: 
     image: nginx:stable-alpine
-    container_name: laravel_mysql
+    container_name: laravel_mysql_estudos
     ports:
-      - "8080:80"
+      - "8088:80"
     volumes:
       - ./src:/var/www/html 
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
@@ -19,7 +19,7 @@ services:
      - laravel
   mysql: 
     image: mysql:5.7.22
-    container_name: mysql
+    container_name: mysql_docker_estudos
     restart: unless-stopped
     tty: true
     ports: 
@@ -40,7 +40,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: php
+    container_name: php_docker_estudos
     volumes: 
       - ./src:/var/www/html
     ports:
